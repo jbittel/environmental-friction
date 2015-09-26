@@ -1,0 +1,7 @@
+base32-crockford==0.3.0
+dj-database-url==0.3.0
+Django==1.7.10
+django-cache-url==1.0.0
+django-configurations==0.8
+psycopg2==2.6.1
+sqlparse==0.1.16
