@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+{% load markup %}
 
 {% block content %}
   <p>{{ post.title }}</p>
-  <p>{{ post.body }}</p>
+  <p>{{ post.body|markup }}</p>
   <p>{{ post.publish }}</p>
   <p>{{ post.author }}</p>
 {% endblock %}
