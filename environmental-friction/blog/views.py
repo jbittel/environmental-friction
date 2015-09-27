@@ -10,7 +10,7 @@ from .models import Post
 
 
 class PostList(ListView):
-    queryset = Post.objects.all()
+    queryset = Post.published.all()
 
 
 class PostDetail(DetailView):
@@ -31,4 +31,4 @@ class PostDetail(DetailView):
             pk = base32_crockford.decode(key)
         except ValueError:
             raise Http404
-        return get_object_or_404(Post, pk=pk)
+        return get_object_or_404(Post.published, pk=pk)

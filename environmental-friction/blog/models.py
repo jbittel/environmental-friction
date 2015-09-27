@@ -11,6 +11,12 @@ from django.utils.translation import ugettext_lazy as _
 import base32_crockford as b32
 
 
+class PublishedPostManager(models.Manager):
+    """Filter only posts that are published."""
+    def get_queryset(self):
+        return super(PublishedPostManager, self).get_queryset().filter(publish__lte=now)
+
+
 @python_2_unicode_compatible
 class Post(models.Model):
     """
@@ -39,6 +45,9 @@ class Post(models.Model):
         verbose_name=_('modified'),
         editable=False,
     )
+
+    objects = models.Manager()
+    published = PublishedPostManager()
 
     class Meta:
         verbose_name = 'Post'
