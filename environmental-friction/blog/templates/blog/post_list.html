@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <ul>
-    {% for post in object_list %}
-      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="row">
+  {% for post in object_list %}
+    <div class="col-lg-8">
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      Posted {{ post.publish }} by {{ post.author.first_name }}
+    </div>
+  {% endfor %}
+  </div>
 {% endblock %}

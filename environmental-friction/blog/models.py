@@ -50,6 +50,7 @@ class Post(models.Model):
     published = PublishedPostManager()
 
     class Meta:
+        ordering = ('-publish',)
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
 

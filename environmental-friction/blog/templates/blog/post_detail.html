@@ -2,8 +2,13 @@
 {% load markup %}
 
 {% block content %}
-  <p>{{ post.title }}</p>
-  <p>{{ post.body|markup }}</p>
-  <p>{{ post.publish }}</p>
-  <p>{{ post.author }}</p>
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>{{ post.title }}</h2>
+      <hr>
+      <p>Posted {{ post.publish }} by {{ post.author.first_name }}</p>
+      <hr>
+      <p>{{ post.body|markup }}</p>
+    </div>
+  </div>
 {% endblock %}
