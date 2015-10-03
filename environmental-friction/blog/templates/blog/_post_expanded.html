@@ -3,5 +3,14 @@
 <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
 <hr>
 <p>{{ post.author.first_name }} &sdot; {{ post.publish|date:"M d, Y" }}</p>
+{% if user.is_authenticated %}
+  <p>
+    <a href="{% url 'admin:blog_post_change' post.pk %}">
+      <button type="button" class="btn btn-default" aria-label="Edit">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+      </button>
+    </a>
+  </p>
+{% endif %}
 <hr>
 {{ post.body|markup }}
