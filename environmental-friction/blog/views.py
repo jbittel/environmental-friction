@@ -10,7 +10,7 @@ from .models import Post
 
 
 class PostList(ListView):
-    paginate_by = 1
+    paginate_by = 5
     queryset = Post.published.all()
 
 
