@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="row">
-    {% for post in object_list %}
-      {% if page_obj.number == 1 and forloop.counter == 1 %}
-        {% include "blog/_post_expanded.html" %}
-      {% else %}
-        {% include "blog/_post_contracted.html" %}
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% for post in object_list %}
+    {% if page_obj.number == 1 and forloop.counter == 1 %}
+      {% include "blog/_post_expanded.html" %}
+    {% else %}
+      {% include "blog/_post_contracted.html" %}
+    {% endif %}
+  {% endfor %}
 
   {% if is_paginated %}
     <div class="row">
