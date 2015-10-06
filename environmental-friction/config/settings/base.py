@@ -1,7 +1,8 @@
 import environ
 
 
-root_dir = environ.Path(__file__) - 3
+root_dir = environ.Path(__file__) - 4
+project_dir = root_dir.path('environmental-friction')
 
 env = environ.Env()
 
@@ -37,7 +38,7 @@ DEBUG = env.bool('DJANGO_DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 
 FIXTURE_DIRS = (
-    root_dir('fixtures'),
+    project_dir('fixtures'),
 )
 
 ADMINS = (
@@ -67,7 +68,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            root_dir('templates'),
+            project_dir('templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -87,14 +88,16 @@ STATIC_ROOT = root_dir('assets')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    project_dir('static'),
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-MEDIA_ROOT = root_dir('media')
+MEDIA_ROOT = project_dir('media')
 MEDIA_URL = '/media/'
 
 ROOT_URLCONF = 'config.urls'
