@@ -1,4 +1,28 @@
-p {
+.container {
+  width: auto;
+  max-width: 960px;
+  padding: 0 15px;
+}
+
+.footer {
+  background-color: #eee;
+  padding: 30px;
+  width: 100%;
+}
+
+.post-expanded p {
   font-size: 1.3em;
   line-height: 1.7em;
+}
+
+.post-contracted {
+  margin: 20px 0;
+}
+
+.post-contracted h3 {
+  margin-top: 0;
+}
+
+.post-nav {
+  margin: 40px 0;
 }
