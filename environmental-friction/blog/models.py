@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -69,3 +70,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', args=[b32.encode(self.pk), self.slug])
+
+    def get_canonical_url(self):
+        return "http://%s%s" % (Site.objects.get_current().domain, self.get_absolute_url())

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block extra_head %}
-  <link rel="canonical" href="{{ post.get_absolute_url }}">
+  <link rel="canonical" href="{{ post.get_canonical_url }}">
 {% endblock extra_head %}
 
 {% block content %}
