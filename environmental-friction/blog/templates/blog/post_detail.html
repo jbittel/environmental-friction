@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block title %}
+  {{ post.title }} | {{ block.super }}
+{% endblock title %}
+
 {% block extra_head %}
   <link rel="canonical" href="{{ post.get_canonical_url }}">
 {% endblock extra_head %}
