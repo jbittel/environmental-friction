@@ -1,3 +1,4 @@
+from django.contrib.sites.models import Site
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
@@ -12,6 +13,12 @@ from .models import Post
 class PostList(ListView):
     paginate_by = 5
     queryset = Post.published.all()
+
+    def get_context_data(self, **kwargs):
+        context = {
+            'domain': Site.objects.get_current().domain,
+        }
+        return super(PostList, self).get_context_data(**context)
 
 
 class PostDetail(DetailView):

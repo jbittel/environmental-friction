@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+  {% if page_obj.has_previous %}
+    <link rel="prev" href="http://{{ domain }}/{% if page_obj.previous_page_number != 1 %}?page={{ page_obj.previous_page_number }}{% endif %}">
+  {% endif %}
+  {% if page_obj.has_next %}
+    <link rel="next" href="http://{{ domain }}/?page={{ page_obj.next_page_number }}">
+  {% endif %}
+{% endblock extra_head %}
+
 {% block content %}
   {% for post in object_list %}
     {% if page_obj.number == 1 and forloop.counter == 1 %}
