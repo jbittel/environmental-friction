@@ -1,6 +1,6 @@
 .container {
   width: auto;
-  max-width: 928px;
+  max-width: 930px;
   padding: 0 15px;
 }
 
@@ -10,21 +10,25 @@
   width: 100%;
 }
 
-.post-expanded p {
-  font-size: 1.3em;
-  line-height: 1.7em;
-}
+.post-expanded {
+  .post-image {
+    border: 1px solid #fff;
+  }
 
-.post-expanded img {
-  max-height: 430px;
+  .post-body p {
+    font-size: 1.3em;
+    line-height: 1.7em;
+    margin: 0 100px 10px;
+    max-width: 730px;
+  }
 }
 
 .post-contracted {
   margin: 20px 0;
-}
 
-.post-contracted h3 {
-  margin-top: 0;
+  h3 {
+    margin-top: 0;
+  }
 }
 
 .post-nav {
