@@ -1,25 +1,51 @@
+@import 'fonts';
+
+body {
+  font-family: $body-font;
+}
+
 .container {
   width: auto;
-  max-width: 930px;
+  max-width: 960px;
   padding: 0 15px;
 }
 
 .footer {
   background-color: #eee;
+  margin-top: 40px;
   padding: 30px;
   width: 100%;
 }
 
+h1, h2, h3 {
+  font-family: $header-font;
+}
+
 .post-expanded {
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 4rem;
+
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+  }
+
   .post-image {
     border: 1px solid #fff;
+    max-height: 366px;
+  }
+
+  .post-wrap {
+    margin: 0 100px 10px;
+    max-width: 760px;
   }
 
   .post-body p {
-    font-size: 1.3em;
-    line-height: 1.7em;
-    margin: 0 100px 10px;
-    max-width: 730px;
+    font-size: 2rem;
+    line-height: 2.7rem;
   }
 }
 

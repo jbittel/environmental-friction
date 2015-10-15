@@ -2,9 +2,11 @@
 
 <div class="row post-expanded">
   <img class="post-image img-responsive" src="{{ post.post_image.url }}">
-  <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-  <p>{{ post.author.first_name }} &sdot; {{ post.publish|date:"M d, Y" }}</p>
-  <div class="post-body">
-    {{ post.body|markup }}
+  <div class="post-wrap">
+    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    <p>{{ post.author.first_name }} &sdot; {{ post.publish|date:"M d, Y" }}</p>
+    <div class="post-body">
+      {{ post.body|markup }}
+    </div>
   </div>
 </div>
