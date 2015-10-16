@@ -2,6 +2,7 @@
 
 body {
   font-family: $body-font;
+  font-size: 10px;
 }
 
 .container {
@@ -33,6 +34,11 @@ h1, h2, h3 {
     }
   }
 
+  p {
+    font-size: 1.6rem;
+    line-height: 1.6rem * 1.5;
+  }
+
   .post-image {
     border: 1px solid #fff;
     max-height: 366px;
@@ -41,11 +47,6 @@ h1, h2, h3 {
   .post-wrap {
     margin: 0 100px 10px;
     max-width: 760px;
-  }
-
-  .post-body p {
-    font-size: 2rem;
-    line-height: 2.7rem;
   }
 }
 
