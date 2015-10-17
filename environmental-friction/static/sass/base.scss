@@ -6,31 +6,36 @@ body {
   font-size: 10px;
 }
 
-.container {
-  width: auto;
-  max-width: 960px;
-  padding: 0 15px;
-}
+a {
+  border-bottom: 1px dotted #444;
 
-.footer {
-  background-color: #444;
-  color: #fff;
-  font-size: 1.5rem;
-  margin-top: 40px;
-  padding: 30px;
-  width: 100%;
-
-  a {
-    color: #fff;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: none;
   }
 }
 
 h1, h2, h3 {
   font-family: $header-font;
+  margin-bottom: 20px;
+
+  a {
+    border: 0;
+    color: #444;
+  }
 }
 
 p {
   margin: 0 0 20px;
+}
+
+.admin-bar {
+  padding: 10px;
+}
+
+.container {
+  width: auto;
+  max-width: 760px;
 }
 
 .post-expanded {
@@ -49,30 +54,33 @@ p {
     font-size: 2rem;
     line-height: 1.5;
   }
-
-  .post-image {
-    border: 1px solid #fff;
-    max-height: 366px;
-  }
-
-  .post-wrap {
-    margin: 0 100px 10px;
-    max-width: 760px;
-  }
-}
-
-.post-contracted {
-  margin: 20px 0;
-
-  h3 {
-    margin-top: 0;
-  }
 }
 
 .post-nav {
+  font-size: 1.8rem;
   margin: 40px 0;
+
+  a {
+    color: #444;
+    display: block;
+
+    &:hover {
+      background-color: #eee;
+      text-decoration: none;
+    }
+  }
 }
 
-.admin-bar {
-  padding: 10px;
+.footer {
+  background-color: #444;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  padding: 40px 0;
+  width: 100%;
+
+  a {
+    border-bottom: 1px dotted #fff;
+    color: #fff;
+  }
 }

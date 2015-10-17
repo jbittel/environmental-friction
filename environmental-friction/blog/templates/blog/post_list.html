@@ -19,15 +19,21 @@
   {% endfor %}
 
   {% if is_paginated %}
-    <div class="row post-nav">
+    <div class="row post-nav text-center">
       <div class="col-md-6">
-        {% if page_obj.has_previous %}
-        <a href="/{% if page_obj.previous_page_number != 1 %}?page={{ page_obj.previous_page_number }}{% endif %}" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Newer Posts</a>
+        {% if page_obj.has_next %}
+          <a href="/?page={{ page_obj.next_page_number }}">
+            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span><br>
+            Older Posts
+          </a>
         {% endif %}
       </div>
       <div class="col-md-6">
-        {% if page_obj.has_next %}
-          <a href="/?page={{ page_obj.next_page_number }}" class="btn btn-default btn-lg btn-block">Older Posts <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+        {% if page_obj.has_previous %}
+          <a href="/{% if page_obj.previous_page_number != 1 %}?page={{ page_obj.previous_page_number }}{% endif %}">
+            <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><br>
+            Newer Posts
+          </a>
         {% endif %}
       </div>
     </div>
