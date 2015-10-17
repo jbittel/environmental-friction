@@ -4,9 +4,8 @@
   <img class="post-image img-responsive" src="{{ post.post_image.url }}">
   <div class="post-wrap">
     <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-    <p>{{ post.author.first_name }} &sdot; {{ post.publish|date:"M d, Y" }}</p>
-    <div class="post-body">
-      {{ post.body|markup }}
-    </div>
+    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ post.author.first_name }} &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.publish|date:"M d, Y" }}</p>
+    {{ post.body|markup }}
+    <hr>
   </div>
 </div>
