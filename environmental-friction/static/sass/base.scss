@@ -1,16 +1,17 @@
 @import 'fonts';
 
 body {
-  color: #444;
-  font-family: $body-font;
+  background-color: $background-color;
+  color: $font-color;
+  font-family: $content-font;
   font-size: 10px;
 }
 
 a {
-  border-bottom: 1px dotted #444;
+  border-bottom: 1px dotted $font-color;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.8;
     text-decoration: none;
   }
 }
@@ -21,7 +22,7 @@ h1, h2, h3 {
 
   a {
     border: 0;
-    color: #444;
+    color: $font-color;
   }
 }
 
@@ -42,7 +43,7 @@ p {
   margin-bottom: 40px;
 
   h2 {
-    font-size: 4rem;
+    font-size: $content-font-size * 2;
 
     a {
       color: #333;
@@ -51,7 +52,7 @@ p {
   }
 
   p {
-    font-size: 2rem;
+    font-size: $content-font-size;
     line-height: 1.5;
   }
 }
@@ -61,7 +62,7 @@ p {
   margin: 40px 0;
 
   a {
-    color: #444;
+    color: $font-color;
     display: block;
 
     &:hover {
@@ -72,15 +73,15 @@ p {
 }
 
 .footer {
-  background-color: #444;
-  color: #fff;
+  background-color: $font-color;
+  color: $background-color;
   font-size: 1.5rem;
   margin-top: 40px;
   padding: 40px 0;
   width: 100%;
 
   a {
-    border-bottom: 1px dotted #fff;
-    color: #fff;
+    border-bottom: 1px dotted $background-color;
+    color: $background-color;
   }
 }
