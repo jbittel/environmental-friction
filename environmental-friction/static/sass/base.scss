@@ -57,6 +57,36 @@ p {
   }
 }
 
+.post-contracted {
+  float: left;
+  margin-bottom: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 760px;
+  height: 200px;
+
+  img {
+    opacity: 0.9;
+    position: absolute;
+  }
+
+  h3 {
+    left: 0;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+
+    a {
+      color: $background-color;
+    }
+
+    span {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 10px;
+    }
+  }
+}
+
 .post-nav {
   font-size: 1.8rem;
   margin: 40px 0;
