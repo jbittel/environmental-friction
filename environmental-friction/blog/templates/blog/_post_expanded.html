@@ -1,7 +1,7 @@
 {% load markup %}
 
 <div class="row post-expanded">
-  <img class="post-image img-responsive" src="{{ post.post_image.url }}">
+  <img class="img-responsive" src="{{ post.post_image.url }}">
   <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
   <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ post.author.first_name }} &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.publish|date:"M d, Y" }}</p>
   {{ post.body|markup }}

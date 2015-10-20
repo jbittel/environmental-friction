@@ -1,4 +1,4 @@
 <div class="row post-contracted">
   <img class="img-responsive" src="{{ post.post_image.url }}">
-  <h3><span><a href="{{ post.get_absolute_url }}">{{ post.title }} <small>{{ post.author.first_name }} &sdot; {{ post.publish|date:"M d, Y" }}</small></a></span></h3>
+  <h3><span><a href="{{ post.get_absolute_url }}">{{ post.title }} <small><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ post.author.first_name }} <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.publish|date:"M d, Y" }}</small></a></span></h3>
 </div>
