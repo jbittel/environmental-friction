@@ -63,20 +63,20 @@ p {
   position: relative;
   height: 200px;
 
+  a {
+    color: $background-color;
+  }
+
   img {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   h3 {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     bottom: 20px;
     left: 0;
     line-height: 200%;
     position: absolute;
-
-    a {
-      color: $background-color;
-    }
 
     span {
       padding: 10px;
