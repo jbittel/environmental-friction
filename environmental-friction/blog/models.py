@@ -10,6 +10,7 @@ from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
 import base32_crockford as b32
+from taggit.managers import TaggableManager
 
 
 class PublishedPostManager(models.Manager):
@@ -54,6 +55,7 @@ class Post(models.Model):
 
     objects = models.Manager()
     published = PublishedPostManager()
+    tags = TaggableManager()
 
     class Meta:
         ordering = ('-publish',)
