@@ -6,12 +6,8 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 
 import factory
-from faker import Factory as FakerFactory
 
 from blog.models import Post
-
-
-faker = FakerFactory.create()
 
 
 class AuthorFactory(factory.django.DjangoModelFactory):
@@ -19,10 +15,10 @@ class AuthorFactory(factory.django.DjangoModelFactory):
         model = User
         django_get_or_create = ('username',)
 
-    first_name = factory.LazyAttribute(lambda o: faker.first_name())
-    last_name = factory.LazyAttribute(lambda o: faker.last_name())
+    first_name = factory.Faker('first_name')
+    last_name = factory.Faker('last_name')
     username = factory.LazyAttribute(lambda o: o.first_name.lower())
-    email = factory.LazyAttribute(lambda o: '{0}@{1}'.format(o.username, faker.domain_name()))
+    email = factory.Faker('email')
     password = factory.PostGenerationMethodCall('set_password', 'password')
     last_login = now()
 
@@ -31,8 +27,8 @@ class PostFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Post
 
-    title = factory.LazyAttribute(lambda o: faker.sentence())
-    body = factory.LazyAttribute(lambda o: faker.paragraph())
+    title = factory.Faker('sentence')
+    body = factory.Faker('paragraph')
     author = factory.SubFactory(AuthorFactory)
     publish = now()
 
