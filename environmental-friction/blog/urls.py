@@ -7,5 +7,5 @@ from .views import PostDetail
 
 urlpatterns = patterns('',
     url(r'^$', PostList.as_view(), name='post-list'),
-    url(r'^(?P<key>\w+)(?:/(?P<slug>[\w\-]*))?$', PostDetail.as_view(), name='post-detail'),
+    url(r'^(?P<pk>\w+)(?:/(?P<slug>[\w\-]*))?$', PostDetail.as_view(), name='post-detail'),
 )

@@ -23,7 +23,6 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
-    pk_url_kwarg = 'key'
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
