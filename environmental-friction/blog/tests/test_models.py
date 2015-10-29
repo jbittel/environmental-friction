@@ -26,4 +26,4 @@ def test_published_posts():
     UnpublishedPostFactory()
 
     assert Post.objects.count() == 2
-    assert Post.published.count() == 1
+    assert Post.objects.published().count() == 1

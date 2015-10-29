@@ -13,10 +13,9 @@ import base32_crockford as b32
 from taggit.managers import TaggableManager
 
 
-class PublishedPostManager(models.Manager):
-    """Filter only posts that are published."""
-    def get_queryset(self):
-        return super(PublishedPostManager, self).get_queryset().filter(publish__lte=now)
+class PostManager(models.Manager):
+    def published(self):
+        return self.filter(publish__lte=now)
 
 
 @python_2_unicode_compatible
@@ -53,8 +52,7 @@ class Post(models.Model):
         editable=False,
     )
 
-    objects = models.Manager()
-    published = PublishedPostManager()
+    objects = PostManager()
     tags = TaggableManager()
 
     class Meta:

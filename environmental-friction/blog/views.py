@@ -12,7 +12,7 @@ from .models import Post
 
 class PostList(ListView):
     paginate_by = 5
-    queryset = Post.published.all()
+    queryset = Post.objects.published()
 
     def get_context_data(self, **kwargs):
         context = {
@@ -39,4 +39,4 @@ class PostDetail(DetailView):
             pk = base32_crockford.decode(key)
         except ValueError:
             raise Http404
-        return get_object_or_404(Post.published, pk=pk)
+        return get_object_or_404(Post.objects.published(), pk=pk)
