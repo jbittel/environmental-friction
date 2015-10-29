@@ -5,8 +5,10 @@
   <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
   <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ post.author.first_name }} &nbsp; <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.publish|date:"M d, Y" }}</p>
   {{ post.body|markup }}
-  <p class="tags">
-    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {% for tag in post.tags.names %} {{ tag }}{% endfor %}
-  </p>
+  {% if post.tags.names %}
+    <p class="tags">
+      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> {% for tag in post.tags.names %} {{ tag }}{% endfor %}
+    </p>
+  {% endif %}
   <hr>
 </div>
