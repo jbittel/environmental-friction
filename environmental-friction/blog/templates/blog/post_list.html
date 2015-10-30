@@ -10,7 +10,7 @@
 {% endblock extra_head %}
 
 {% block content %}
-  {% for post in object_list %}
+  {% for post in post_list %}
     {% if page_obj.number == 1 and forloop.counter == 1 %}
       {% include "blog/_post_expanded.html" %}
     {% else %}
