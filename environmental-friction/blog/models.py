@@ -74,7 +74,7 @@ class Post(models.Model):
         return slugify(self.title)
 
     def get_absolute_url(self):
-        return reverse('post-detail', args=[b32.encode(self.pk), self.slug])
+        return reverse('blog:detail', args=[b32.encode(self.pk), self.slug])
 
     def get_canonical_url(self):
         return "http://%s%s" % (Site.objects.get_current().domain, self.get_absolute_url())
