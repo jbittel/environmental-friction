@@ -6,7 +6,10 @@ from django.db import migrations, models
 
 
 def update_default_site(apps, schema_editor):
-    current_site = Site.objects.get_current()
+    try:
+        current_site = Site.objects.get_current()
+    except Site.DoesNotExist:
+        current_site = Site()
     current_site.domain = 'environmentalfriction.com'
     current_site.name = 'Environmental Friction'
     current_site.save()
