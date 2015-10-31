@@ -3,6 +3,7 @@ import os
 from time import strftime
 
 from fabric.api import *
+from fabric.contrib.files import append
 from fabric.contrib.files import exists
 
 
@@ -22,9 +23,9 @@ def deploy():
     checkout()
     create_venv()
 #    collectstatic()
-#    migrate()
+    migrate()
     install()
-#    reload()
+    reload()
 
 
 @task
@@ -51,6 +52,8 @@ def create_venv():
     """Create virtualenv and install pip requirements."""
     with cd(env.deploy_path):
         run("virtualenv %s" % os.path.basename(os.path.normpath(env.venv_path)))
+    append_text = "export $(cat \"%s\")" % os.path.join(env.root_path, '.env')
+    append(os.path.join(env.venv_path, 'bin/activate'), append_text)
     with virtualenv():
         run("pip install -r requirements/production.txt")
 
@@ -68,13 +71,21 @@ def migrate():
 
 
 def install():
-    """Install new code as active path."""
+    """Install new code and config as active paths."""
     current_path = os.path.join(env.root_path, 'current')
-    if run("readlink %s" % current_path) != env.deploy_path:
+    if run("readlink -s %s" % current_path) != env.deploy_path:
         run("rm -f %s" % current_path)
     run("ln -s %s %s" % (env.deploy_path, current_path))
-    # TODO symlink supervisor conf file
-    # TODO symlink nginx conf file
+
+    supervisor_conf_path = '/etc/supervisor/conf.d/environmental-friction.conf'
+    supervisor_serve_path = os.path.join(current_path, 'serve/supervisor.conf')
+    if not exists(supervisor_conf_path):
+        sudo("ln -s %s %s" % (supervisor_serve_path, supervisor_conf_path))
+
+    nginx_conf_path = '/etc/nginx/sites-enabled/environmental-friction.conf'
+    nginx_serve_path = os.path.join(current_path, 'serve/nginx.conf')
+    if not exists(nginx_conf_path):
+        sudo("sudo ln -s %s %s" % (nginx_serve_path, nginx_conf_path))
 
 
 def reload():
