@@ -2,7 +2,7 @@ from contextlib import contextmanager
 import os
 from time import strftime
 
-from fabric.api import *
+from fabric.api import *  # noqa
 from fabric.contrib.files import append
 from fabric.contrib.files import exists
 
