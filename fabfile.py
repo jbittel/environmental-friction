@@ -22,7 +22,7 @@ def deploy():
     initialize()
     checkout()
     create_venv()
-#    collectstatic()
+    collectstatic()
     migrate()
     install()
     reload()
@@ -61,7 +61,7 @@ def create_venv():
 def collectstatic():
     """Collect and deploy static files."""
     with virtualenv():
-        run('environmental-friction/manage.py collectstatic --noinput')
+        run('environmental-friction/manage.py collectstatic --ignore sass --noinput')
 
 
 def migrate():
