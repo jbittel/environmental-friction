@@ -3,4 +3,9 @@ from .base import *  # noqa
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
-# TODO use cached template loader
+TEMPLATES[0]['OPTIONS']['loaders'] = [
+    ('django.template.loaders.cached.Loader', [
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    ]),
+]
