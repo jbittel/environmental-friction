@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-STATIC_ROOT = root_dir('assets')
+STATIC_ROOT = root_dir('static')
 
 STATIC_URL = '/static/'
 
