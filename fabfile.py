@@ -55,12 +55,14 @@ def create_venv():
     append_text = "export $(cat \"%s\")" % os.path.join(env.root_path, '.env')
     append(os.path.join(env.venv_path, 'bin/activate'), append_text)
     with virtualenv():
-        run("pip install -r requirements/production.txt")
+        run('pip install -r requirements/production.txt')
 
 
 def collectstatic():
     """Collect and deploy static files."""
     with virtualenv():
+        run('npm install --silent')
+        run('grunt production')
         run('environmental-friction/manage.py collectstatic --ignore sass --noinput')
 
 
