@@ -93,8 +93,7 @@ def install():
 def reload():
     """Reload web services."""
     sudo('service nginx reload')
-    sudo('supervisorctl update')
-    sudo('pkill -HUP -f gunicorn.*master')
+    sudo('supervisorctl restart environmental-friction')
 
 
 @contextmanager
