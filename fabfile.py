@@ -91,6 +91,7 @@ def install():
         sudo("sudo ln -s %s %s" % (nginx_serve_path, nginx_conf_path))
 
 
+@task
 def reload():
     """Reload web services."""
     sudo('service nginx reload')
