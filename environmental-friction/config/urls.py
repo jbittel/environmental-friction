@@ -9,6 +9,6 @@ from core.views import AboutView
 
 urlpatterns = [
     url(r'^about/$', AboutView.as_view(), name='about'),
-    url(r'', include('blog.urls', namespace='blog')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('blog.urls', namespace='blog')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
