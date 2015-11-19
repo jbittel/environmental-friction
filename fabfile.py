@@ -26,6 +26,7 @@ def deploy():
     migrate()
     install()
     reload()
+    prune()
 
 
 @task
@@ -94,6 +95,24 @@ def reload():
     """Reload web services."""
     sudo('service nginx reload')
     sudo('supervisorctl restart environmental-friction')
+
+
+def prune(keep_dirs=5):
+    """Remove stale deploy directories."""
+    with cd(env.root_path):
+        ls = run('for d in deploy-*; do echo $d; done', quiet=True)
+        deploy_dirs = ls.replace('\r', '').split('\n')
+
+        try:
+            # Never remove current symlinked directory
+            current = run('readlink -nqs current', quiet=True)
+            deploy_dirs.remove(current)
+            keep_dirs = keep_dirs - 1
+        except ValueError:
+            pass
+
+        for dir in deploy_dirs[:-keep_dirs]:
+            run("rm -rf %s" % dir)
 
 
 @contextmanager
