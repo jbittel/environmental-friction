@@ -12,13 +12,15 @@ from .models import Post
 
 class PostList(ListView):
     paginate_by = 5
-    queryset = Post.objects.published()
 
     def get_context_data(self, **kwargs):
         context = {
             'domain': Site.objects.get_current().domain,
         }
         return super(PostList, self).get_context_data(**context)
+
+    def get_queryset(self):
+        return Post.objects.published()
 
 
 class PostDetail(DetailView):
