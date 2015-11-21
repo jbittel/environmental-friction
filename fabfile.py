@@ -75,10 +75,10 @@ def migrate():
 
 def install():
     """Install new code and config as active paths."""
-    current_path = os.path.join(env.root_path, 'current')
-    if run("readlink -s %s" % current_path) != env.deploy_path:
-        run("rm -f %s" % current_path)
-    run("ln -s %s %s" % (env.deploy_path, current_path))
+    current_symlink = os.path.join(env.root_path, 'current')
+    if run("readlink -nqs %s" % current_symlink) != env.deploy_path:
+        run("rm -f %s" % current_symlink)
+    run("ln -s %s %s" % (env.deploy_path, current_symlink))
 
     supervisor_conf_path = '/etc/supervisor/conf.d/environmental-friction.conf'
     supervisor_serve_path = os.path.join(current_path, 'serve/supervisor.conf')
