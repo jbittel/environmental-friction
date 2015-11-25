@@ -81,12 +81,12 @@ def install():
     run("ln -s %s %s" % (env.deploy_path, current_symlink))
 
     supervisor_conf_path = '/etc/supervisor/conf.d/environmental-friction.conf'
-    supervisor_serve_path = os.path.join(current_path, 'serve/supervisor.conf')
+    supervisor_serve_path = os.path.join(current_symlink, 'serve/supervisor.conf')
     if not exists(supervisor_conf_path):
         sudo("ln -s %s %s" % (supervisor_serve_path, supervisor_conf_path))
 
     nginx_conf_path = '/etc/nginx/sites-enabled/environmental-friction.conf'
-    nginx_serve_path = os.path.join(current_path, 'serve/nginx.conf')
+    nginx_serve_path = os.path.join(current_symlink, 'serve/nginx.conf')
     if not exists(nginx_conf_path):
         sudo("sudo ln -s %s %s" % (nginx_serve_path, nginx_conf_path))
 
