@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.feedgenerator import Atom1Feed
 
 from .models import Post
+from .templatetags.markup import markup
 
 
 class RSSFeed(Feed):
@@ -19,7 +20,7 @@ class RSSFeed(Feed):
         return item.title
 
     def item_description(self, item):
-        return item.body
+        return markup(item.body)
 
 
 class AtomFeed(RSSFeed):
