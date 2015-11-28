@@ -8,5 +8,5 @@ class StaticStorage(ManifestFilesMixin, S3BotoStorage):
     location = settings.STATICFILES_PATH
 
 
-class MediaStorage(ManifestFilesMixin, S3BotoStorage):
+class MediaStorage(S3BotoStorage):
     location = settings.MEDIAFILES_PATH
