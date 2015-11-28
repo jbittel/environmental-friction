@@ -11,7 +11,7 @@ a {
   border-bottom: 1px dotted $font-color;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     text-decoration: none;
   }
 }
@@ -54,6 +54,7 @@ p {
 
   h2 {
     font-size: $content-font-size * 2;
+    padding: 0 10px 0;
 
     a {
       color: #333;
@@ -64,6 +65,7 @@ p {
   p, blockquote {
     font-size: $content-font-size;
     line-height: 1.5;
+    padding: 0 10px 0;
   }
 
   .tags {
@@ -79,10 +81,6 @@ p {
 
   a {
     color: $background-color;
-  }
-
-  img {
-    opacity: 0.8;
   }
 
   h3 {
