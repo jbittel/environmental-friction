@@ -1,5 +1,7 @@
 from .base import *  # noqa
 
+from django.utils import six
+
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
@@ -21,6 +23,11 @@ AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = False
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+
+AWS_EXPIRY = 60 * 60 * 24 * 7
+AWS_HEADERS = {
+    'Cache-Control': six.b("max-age=%d, s-maxage=%d, must-revalidate" % (AWS_EXPIRY, AWS_EXPIRY))
+}
 
 # For Django 1.7+, 'collectfast' must come before 'django.contrib.staticfiles'
 INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
