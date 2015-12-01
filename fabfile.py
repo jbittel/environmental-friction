@@ -62,7 +62,7 @@ def create_venv():
 def collectstatic():
     """Collect and deploy static files."""
     with virtualenv():
-        run('npm install --silent')
+        run('npm install --loglevel warn --production')
         run('grunt production')
         run('environmental-friction/manage.py collectstatic --ignore sass --noinput')
 
