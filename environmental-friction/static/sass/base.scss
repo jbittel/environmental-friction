@@ -90,12 +90,11 @@ p {
   h3 {
     background: rgba(0, 0, 0, 0.9);
     bottom: 20px;
-    left: 0;
-    line-height: 200%;
+    padding: 10px;
     position: absolute;
 
     span {
-      padding: 10px;
+      padding-left: 5px;
     }
   }
 }
