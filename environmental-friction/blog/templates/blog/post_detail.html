@@ -10,4 +10,8 @@
 
 {% block content %}
   {% include "blog/_post_expanded.html" %}
+  <h3>Similar Posts</h3>
+  {% for post in post.tags.similar_objects %}
+    {% include "blog/_post_contracted.html" %}
+  {% endfor %}
 {% endblock %}
