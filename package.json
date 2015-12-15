@@ -2,9 +2,13 @@
   "name": "environmental-friction",
   "homepage": "http://environmentalfriction.com",
   "dependencies": {
+    "autoprefixer": "6.1.2",
+    "cssnano": "3.4.0",
     "grunt": "0.4.5",
+    "grunt-postcss": "0.7.1",
     "grunt-sass": "1.1.0",
-    "load-grunt-tasks": "3.3.0"
+    "load-grunt-tasks": "3.3.0",
+    "pixrem": "3.0.0"
   },
   "devDependencies": {
     "grunt-bg-shell": "2.3.1",
