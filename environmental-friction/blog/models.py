@@ -15,7 +15,7 @@ from taggit.managers import TaggableManager
 
 class PostManager(models.Manager):
     def published(self):
-        return self.filter(publish__lte=now)
+        return self.filter(publish__lte=now())
 
 
 @python_2_unicode_compatible

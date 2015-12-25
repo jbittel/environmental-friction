@@ -4,7 +4,7 @@ django-debug-toolbar==1.4
 fabric==1.10.2
 factory-boy==2.6.0
 fake-factory==0.5.3
-flake8==2.5.0
-pytest==2.8.3
+flake8==2.5.1
+pytest==2.8.5
 pytest-django==2.9.1
-pytest-factoryboy==1.1.4
+pytest-factoryboy==1.1.5
