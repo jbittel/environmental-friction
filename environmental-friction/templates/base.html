@@ -12,25 +12,6 @@
   <link rel="stylesheet" href="{% static "css/base.css" %}">
 </head>
 <body>
-  {% if user.is_staff %}
-    <div class="container-fluid">
-      <div class="row bg-primary admin-bar">
-        <a href="{% url 'admin:blog_post_add' %}">
-          <button type="button" class="btn btn-default btn-sm">
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span> New Post
-          </button>
-        </a>
-        {% if post %}
-          <a href="{% url 'admin:blog_post_change' post.pk %}">
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Post
-            </button>
-          </a>
-        {% endif %}
-      </div>
-    </div>
-  {% endif %}
-
   <div class="container">
     <div class="page-header">
       <h1><a href="/">Environmental Friction</a></h1>
