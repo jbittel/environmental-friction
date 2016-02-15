@@ -78,3 +78,11 @@ class Post(models.Model):
 
     def get_canonical_url(self):
         return "http://%s%s" % (Site.objects.get_current().domain, self.get_absolute_url())
+
+    def get_status_text(self):
+        if self.publish is None:
+            return 'Draft'
+        elif self.publish > now():
+            return 'Scheduled'
+        else:
+            return 'Published'
