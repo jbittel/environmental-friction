@@ -31,8 +31,8 @@ class Post(models.Model):
     )
     post_image = models.ImageField(
         verbose_name=_('post image'),
+        blank=True,
         upload_to='blog/%Y/%m/%d',
-        null=True,
     )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -41,7 +41,9 @@ class Post(models.Model):
     )
     publish = models.DateTimeField(
         verbose_name=_('publish'),
+        blank=True,
         default=now,
+        null=True,
     )
     created = models.DateTimeField(
         verbose_name=_('created'),
