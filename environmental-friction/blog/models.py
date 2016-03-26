@@ -31,7 +31,6 @@ class Post(models.Model):
     )
     post_image = models.ImageField(
         verbose_name=_('post image'),
-        blank=True,
         upload_to='blog/%Y/%m/%d',
     )
     author = models.ForeignKey(
