@@ -14,7 +14,8 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          '<%= pkg.name %>/static/css/base.css': '<%= pkg.name %>/static/sass/base.scss'
+          '<%= pkg.name %>/static/css/base.css': '<%= pkg.name %>/static/sass/base.scss',
+          '<%= pkg.name %>/static/css/write.css': '<%= pkg.name %>/static/sass/write.scss'
         }
       }
     },

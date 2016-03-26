@@ -1,0 +1,15 @@
+{% extends "blog/write.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  {% if form.errors %}
+    <div class="alert alert-danger" role="alert">Incorrect username or password</div>
+  {% endif %}
+
+  <form method="post" action="{% url "login" %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock content %}

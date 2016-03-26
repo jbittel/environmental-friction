@@ -42,7 +42,6 @@ class Post(models.Model):
     publish = models.DateTimeField(
         verbose_name=_('publish'),
         blank=True,
-        default=now,
         null=True,
     )
     created = models.DateTimeField(

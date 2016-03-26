@@ -18,6 +18,7 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'crispy_forms',
     'taggit',
 )
 
@@ -152,3 +153,8 @@ ALLOWED_HOSTS = ['environmentalfriction.com']
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'blog:write'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
