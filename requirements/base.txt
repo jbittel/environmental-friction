@@ -1,9 +1,9 @@
 base32-crockford==0.3.0
-Django==1.9.2
+Django==1.9.4
 django-crispy-forms==1.6.0
 django-environ==0.4.0
 django-taggit==0.18.0
-Markdown==2.6.5
+Markdown==2.6.6
 Pillow==3.1.1
 psycopg2==2.6.1
-sqlparse==0.1.16
+sqlparse==0.1.19

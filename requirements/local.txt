@@ -3,8 +3,8 @@
 django-debug-toolbar==1.4
 fabric==1.10.2
 factory-boy==2.6.1
-fake-factory==0.5.3
+fake-factory==0.5.7
 flake8==2.5.4
-pytest==2.8.5
+pytest==2.9.1
 pytest-django==2.9.1
 pytest-factoryboy==1.1.5
