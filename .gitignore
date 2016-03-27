@@ -1,6 +1,6 @@
 *.py[co]
-.cache/
-node_modules/
+/.cache/
+/node_modules/
 css/
-media/
-static/
+/media/
+/static/
